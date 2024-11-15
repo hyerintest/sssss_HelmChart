@@ -1,4 +1,4 @@
-namespace: -@namespace@-
+namespace: sssss-dev
 pvc:
   name: pvc-redis-standalone-1-p4tlo8hhvw
   storageClass: tlc-block-sc
@@ -9,18 +9,18 @@ redis:
     name: config-redis-standalone-1-p4tlo8hhvw
   statefulset:
     name: redis-standalone-1-p4tlo8hhvw
-    replicas: -@replicas@-
+    replicas: 1
     hpa:
       name: hpa-redis-standalone-1-p4tlo8hhvw
-      minReplicas: -@minReplicas@-
-      maxReplicas: -@maxReplicas@-
-      cpu: -@cpuAutoScale@-
+      minReplicas: 1
+      maxReplicas: 1
+      cpu: 70
       memory: -@memAutoScale@-
     port: 6379
     resource:
       request:
-        memory: -@requestMemory@-
-        cpu: -@requestCpu@-
+        memory: 250Mi
+        cpu: 0.25
     volume:
       name: redis-standalone-1-p4tlo8hhvw
   service:
