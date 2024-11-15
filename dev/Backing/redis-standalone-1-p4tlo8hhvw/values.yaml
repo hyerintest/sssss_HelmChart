@@ -1,0 +1,34 @@
+namespace: -@namespace@-
+pvc:
+  name: pvc-redis-standalone-1-p4tlo8hhvw
+  storageClass: tlc-block-sc
+  size: 5Gi
+  accessMode: ReadWriteOnce
+redis:
+  configmap:
+    name: config-redis-standalone-1-p4tlo8hhvw
+  statefulset:
+    name: redis-standalone-1-p4tlo8hhvw
+    replicas: -@replicas@-
+    hpa:
+      name: hpa-redis-standalone-1-p4tlo8hhvw
+      minReplicas: -@minReplicas@-
+      maxReplicas: -@maxReplicas@-
+      cpu: -@cpuAutoScale@-
+      memory: -@memAutoScale@-
+    port: 6379
+    resource:
+      request:
+        memory: -@requestMemory@-
+        cpu: -@requestCpu@-
+    volume:
+      name: redis-standalone-1-p4tlo8hhvw
+  service:
+    name: redis-standalone-1-p4tlo8hhvw
+    port: 6379
+    protocol: 
+  secret:
+    name: secret-redis-standalone-1-p4tlo8hhvw
+    host: redis-standalone-1-p4tlo8hhvw
+    port: 6379
+    password: Um9vdDEyMzQh
